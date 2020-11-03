@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		408F75712551624500131CEE /* BadgeButton in Frameworks */ = {isa = PBXBuildFile; productRef = 408F75702551624500131CEE /* BadgeButton */; };
 		40C8619C254DFF6E00212B8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8619B254DFF6E00212B8D /* AppDelegate.swift */; };
 		40C8619E254DFF6E00212B8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8619D254DFF6E00212B8D /* SceneDelegate.swift */; };
 		40C861A0254DFF6E00212B8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C8619F254DFF6E00212B8D /* ViewController.swift */; };
 		40C861A3254DFF6E00212B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C861A1254DFF6E00212B8D /* Main.storyboard */; };
 		40C861A5254DFF7000212B8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C861A4254DFF7000212B8D /* Assets.xcassets */; };
 		40C861A8254DFF7000212B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C861A6254DFF7000212B8D /* LaunchScreen.storyboard */; };
-		40C861B9254EA73A00212B8D /* BadgeButton in Frameworks */ = {isa = PBXBuildFile; productRef = 40C861B8254EA73A00212B8D /* BadgeButton */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		408F75672551619B00131CEE /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		408F756D2551620300131CEE /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
+		408F756E2551623B00131CEE /* git */ = {isa = PBXFileReference; lastKnownFileType = folder; name = git; path = ..; sourceTree = "<group>"; };
 		40C86198254DFF6E00212B8D /* BadgeButtonSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BadgeButtonSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8619B254DFF6E00212B8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40C8619D254DFF6E00212B8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +28,6 @@
 		40C861A4254DFF7000212B8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C861A7254DFF7000212B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C861A9254DFF7000212B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40C861B0254DFF9500212B8D /* BadgeButton */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BadgeButton; path = ../BadgeButton; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +35,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C861B9254EA73A00212B8D /* BadgeButton in Frameworks */,
+				408F75712551624500131CEE /* BadgeButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		408F756B2551620300131CEE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				408F756C2551620300131CEE /* BadgeButton */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
+		408F756C2551620300131CEE /* BadgeButton */ = {
+			isa = PBXGroup;
+			children = (
+				408F756D2551620300131CEE /* BadgeButton.swift */,
+			);
+			path = BadgeButton;
+			sourceTree = "<group>";
+		};
 		40C8618F254DFF6E00212B8D = {
 			isa = PBXGroup;
 			children = (
-				40C861B0254DFF9500212B8D /* BadgeButton */,
+				408F756E2551623B00131CEE /* git */,
 				40C8619A254DFF6E00212B8D /* BadgeButtonSample */,
 				40C86199254DFF6E00212B8D /* Products */,
 				40C861B7254EA73A00212B8D /* Frameworks */,
@@ -75,6 +94,8 @@
 		40C861B7254EA73A00212B8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				408F756B2551620300131CEE /* Sources */,
+				408F75672551619B00131CEE /* Package.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,7 +117,7 @@
 			);
 			name = BadgeButtonSample;
 			packageProductDependencies = (
-				40C861B8254EA73A00212B8D /* BadgeButton */,
+				408F75702551624500131CEE /* BadgeButton */,
 			);
 			productName = BadgeButtonSample;
 			productReference = 40C86198254DFF6E00212B8D /* BadgeButtonSample.app */;
@@ -358,7 +379,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		40C861B8254EA73A00212B8D /* BadgeButton */ = {
+		408F75702551624500131CEE /* BadgeButton */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BadgeButton;
 		};
