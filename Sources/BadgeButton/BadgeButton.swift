@@ -13,17 +13,25 @@ public class BadgeButton: UIButton {
     private let _badgeBackground: UIView = UIView(frame: CGRect.zero)
     private let _badgeLabel: LabelPlus = LabelPlus(frame: CGRect.zero)
     
-    private var _badgeTextPadding: CGFloat = 4.0
+    private var _badgeTextHorizontalPadding: CGFloat = 4.0
+    private var _badgeTextVerticalPadding: CGFloat = 4.0
     private var _badgeWidthConstraint: NSLayoutConstraint!
     private var _badgeHeightConstraint: NSLayoutConstraint!
     private var _badgeTrailingConstraint: NSLayoutConstraint!
     
-    @IBInspectable public var badgeTextPadding: CGFloat {
-        get { return _badgeTextPadding }
+    @IBInspectable public var badgeTextHorizontalPadding: CGFloat {
+        get { return _badgeTextHorizontalPadding }
         set {
-            _badgeTextPadding = newValue
-            _badgeWidthConstraint.constant = _badgeTextPadding
-            _badgeHeightConstraint.constant = _badgeTextPadding
+            _badgeTextHorizontalPadding = newValue
+            _badgeWidthConstraint.constant = _badgeTextHorizontalPadding
+        }
+    }
+    
+    @IBInspectable public var badgeTextVerticalPadding: CGFloat {
+        get { return _badgeTextVerticalPadding }
+        set {
+            _badgeTextVerticalPadding = newValue
+            _badgeHeightConstraint.constant = _badgeTextVerticalPadding
         }
     }
     
@@ -91,9 +99,9 @@ public class BadgeButton: UIButton {
         addSubview(_badgeBackground)
         
         _badgeWidthConstraint = _badgeBackground.widthAnchor.constraint(equalTo: _badgeLabel.widthAnchor,
-                                                                        constant: _badgeTextPadding)
+                                                                        constant: _badgeTextHorizontalPadding)
         _badgeHeightConstraint = _badgeBackground.heightAnchor.constraint(equalTo: _badgeLabel.heightAnchor,
-                                                                          constant: _badgeTextPadding)
+                                                                          constant: _badgeTextVerticalPadding)
         
         _badgeWidthConstraint.isActive = true
         _badgeHeightConstraint.isActive = true
