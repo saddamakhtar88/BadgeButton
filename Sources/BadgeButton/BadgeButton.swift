@@ -128,4 +128,10 @@ private class LabelPlus: UILabel {
             onTextChanged()
         }
     }
+    
+    override var attributedText: NSAttributedString? {
+        didSet {
+            onTextChanged()
+        }
+    }
 }
