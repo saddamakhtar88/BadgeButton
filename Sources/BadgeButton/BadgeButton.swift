@@ -11,7 +11,7 @@ import UIKit
 public class BadgeButton: UIButton {
     
     private let _badgeBackground: UIView = UIView(frame: CGRect.zero)
-    private let _badgeLabel: UILabel = UILabel(frame: CGRect.zero)
+    private let _badgeLabel: LabelPlus = LabelPlus(frame: CGRect.zero)
     
     private var _badgeTextPadding: CGFloat = 4.0
     private var _badgeWidthConstraint: NSLayoutConstraint!
@@ -101,5 +101,23 @@ public class BadgeButton: UIButton {
         _badgeBackground.centerYAnchor.constraint(equalTo: topAnchor).isActive = true
         _badgeTrailingConstraint = _badgeBackground.trailingAnchor.constraint(equalTo: trailingAnchor)
         _badgeTrailingConstraint.isActive = true
+        
+        let showHideBadge = { [unowned self] in
+            _badgeBackground.isHidden = _badgeLabel.text?.isEmpty != false
+        }
+        
+        showHideBadge()
+        _badgeLabel.onTextChanged = {
+            showHideBadge()
+        }
+    }
+}
+
+private class LabelPlus: UILabel {
+    var onTextChanged: ()->Void = {}
+    override var text: String? {
+        didSet {
+            onTextChanged()
+        }
     }
 }
