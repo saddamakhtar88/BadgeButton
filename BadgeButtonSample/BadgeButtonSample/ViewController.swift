@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         
         badgeButton.layer.cornerRadius = 8
         badgeButton.badgeColor = .blue
-        badgeButton.badgeText = "12"
+        badgeButton.badgeText = "1"
         badgeButton.badgeTextColor = .white
         
         badgeButton.badgeLabel.font = UIFont.boldSystemFont(ofSize: fontSize)

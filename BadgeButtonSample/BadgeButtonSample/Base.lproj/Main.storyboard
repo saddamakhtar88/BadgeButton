@@ -54,6 +54,9 @@
                                         <color key="value" systemColor="systemRedColor"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="badgeText" value="2"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="badgeTextHorizontalPadding">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfF-s1-EhK" customClass="BadgeButton" customModule="BadgeButton">
