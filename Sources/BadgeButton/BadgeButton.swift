@@ -74,7 +74,7 @@ public class BadgeButton: UIButton {
         
         _badgeBackground.setNeedsLayout()
         _badgeBackground.layoutIfNeeded()
-        _badgeBackground.layer.cornerRadius = _badgeBackground.frame.height / 2
+        _badgeBackground.layer.cornerRadius = min(_badgeBackground.frame.height, _badgeBackground.frame.width) / 2
         
         _badgeTrailingConstraint.constant = _badgeBackground.layer.cornerRadius
         
@@ -91,7 +91,6 @@ public class BadgeButton: UIButton {
         
         _badgeLabel.centerXAnchor.constraint(equalTo: _badgeBackground.centerXAnchor).isActive = true
         _badgeLabel.centerYAnchor.constraint(equalTo: _badgeBackground.centerYAnchor).isActive = true
-        _badgeLabel.widthAnchor.constraint(greaterThanOrEqualTo: _badgeLabel.heightAnchor, multiplier: 1.0).isActive = true
         
         _badgeBackground.isUserInteractionEnabled = false
         _badgeBackground.translatesAutoresizingMaskIntoConstraints = false
