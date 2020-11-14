@@ -12,22 +12,33 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var badgeButton: BadgeButton!
     
-    var fontSize: CGFloat = 18
+    var fontSize: CGFloat = 16
+    var badgeText: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         badgeButton.layer.cornerRadius = 8
         badgeButton.badgeColor = .blue
-        badgeButton.badgeText = "1"
+        badgeButton.badgeText = "777"
         badgeButton.badgeTextColor = .white
         
         badgeButton.badgeLabel.font = UIFont.boldSystemFont(ofSize: fontSize)
     }
     
+    @IBAction func onTopButtonTap(_ sender: BadgeButton) {
+        badgeText += 1
+        badgeButton.badgeText = "\(badgeText)"
+    }
+    
     @IBAction func onButtonTap(_ sender: BadgeButton) {
         fontSize += 8
-        sender.badgeLabel.font = badgeButton.badgeLabel.font.withSize(fontSize)
+        badgeButton.badgeTextHorizontalPadding += 2
+    }
+    
+    @IBAction func onBottomButtonTap(_ sender: BadgeButton) {
+        badgeText -= 1
+        badgeButton.badgeText = "\(badgeText)"
     }
 }
 

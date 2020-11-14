@@ -34,9 +34,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="badgeTextPadding">
                                         <real key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="badgeTextHorizontalPadding">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gh-j9-c1h"/>
@@ -54,10 +51,10 @@
                                         <color key="value" systemColor="systemRedColor"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="badgeText" value="2"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="badgeTextHorizontalPadding">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBottomButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iDb-1V-Kan"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfF-s1-EhK" customClass="BadgeButton" customModule="BadgeButton">
                                 <rect key="frame" x="164.5" y="336.5" width="85" height="45"/>
@@ -76,10 +73,10 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
                                         <color key="value" systemColor="systemGrayColor"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="badgeTextHorizontalPadding">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTopButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="crL-GZ-mI5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
