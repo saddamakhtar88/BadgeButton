@@ -26,4 +26,4 @@ dependencies: [
 - badgeColor: UIColor?
 - badgeLabel: UILabel
 - badgeTextVerticalPadding: CGFloat = 4.0
-- badgeTextHorizontalPadding: CGFloat = 4.0
+- badgeTextHorizontalPadding: CGFloat = 8.0

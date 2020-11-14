@@ -13,17 +13,25 @@ public class BadgeButton: UIButton {
     private let _badgeBackground: UIView = UIView(frame: CGRect.zero)
     private let _badgeLabel: LabelPlus = LabelPlus(frame: CGRect.zero)
     
-    private var _badgeTextHorizontalPadding: CGFloat = 4.0
+    private var _badgeTextHorizontalPadding: CGFloat = 8.0
     private var _badgeTextVerticalPadding: CGFloat = 4.0
     private var _badgeWidthConstraint: NSLayoutConstraint!
     private var _badgeHeightConstraint: NSLayoutConstraint!
     private var _badgeTrailingConstraint: NSLayoutConstraint!
+    
+    private var _badgeHorizontalDeltaPadding: CGFloat = 0.0 {
+        didSet {
+            _badgeWidthConstraint.constant = _badgeTextHorizontalPadding + _badgeHorizontalDeltaPadding
+        }
+    }
     
     @IBInspectable public var badgeTextHorizontalPadding: CGFloat {
         get { return _badgeTextHorizontalPadding }
         set {
             _badgeTextHorizontalPadding = newValue
             _badgeWidthConstraint.constant = _badgeTextHorizontalPadding
+            
+            shapeAndPosition()
         }
     }
     
@@ -32,6 +40,8 @@ public class BadgeButton: UIButton {
         set {
             _badgeTextVerticalPadding = newValue
             _badgeHeightConstraint.constant = _badgeTextVerticalPadding
+            
+            shapeAndPosition()
         }
     }
     
@@ -39,7 +49,6 @@ public class BadgeButton: UIButton {
         get { return _badgeLabel.text }
         set {
             _badgeLabel.text = newValue
-            invalidateIntrinsicContentSize()
         }
     }
     
@@ -71,15 +80,7 @@ public class BadgeButton: UIButton {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        
-        _badgeBackground.setNeedsLayout()
-        _badgeBackground.layoutIfNeeded()
-        _badgeBackground.layer.cornerRadius = min(_badgeBackground.frame.height, _badgeBackground.frame.width) / 2
-        
-        _badgeTrailingConstraint.constant = _badgeBackground.layer.cornerRadius
-        
-        
-        bringSubviewToFront(_badgeBackground)
+        shapeAndPosition()
     }
     
     private func initializeView() {
@@ -111,12 +112,32 @@ public class BadgeButton: UIButton {
         
         let showHideBadge = { [unowned self] in
             _badgeBackground.isHidden = _badgeLabel.text?.isEmpty != false
+            if !_badgeBackground.isHidden {
+                shapeAndPosition()
+            }
         }
         
         showHideBadge()
         _badgeLabel.onTextChanged = {
             showHideBadge()
         }
+    }
+    
+    private func shapeAndPosition() {
+        _badgeHorizontalDeltaPadding = 0
+        
+        _badgeBackground.setNeedsLayout()
+        _badgeBackground.layoutIfNeeded()
+        
+        let frameSize = _badgeBackground.frame.size
+        var requiredWidthForSquare = frameSize.height - frameSize.width
+        requiredWidthForSquare = requiredWidthForSquare > 0 ? requiredWidthForSquare : 0
+        _badgeHorizontalDeltaPadding = requiredWidthForSquare
+        
+        _badgeBackground.layer.cornerRadius = frameSize.height / 2
+        _badgeTrailingConstraint.constant = _badgeBackground.layer.cornerRadius
+        
+        bringSubviewToFront(_badgeBackground)
     }
 }
 
